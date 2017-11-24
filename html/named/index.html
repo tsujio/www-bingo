@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>お名前ビンゴ出た人リスト</title>
+  </head>
+  <body>
+    <button type="button" id="download">ダウンロード</button> ※ 使い方: 「鈴木」と入力してみてください
+
+    <div>
+      <iframe src="./named.html" height="500px" width="100%" frameborder="0"></iframe>
+    </div>
+
+    <script>
+     // Handle download
+     var download = document.querySelector("#download");
+     download.addEventListener("click", function() {
+       location.href = "./named.tgz";
+     });
+    </script>
+  </body>
+</html>

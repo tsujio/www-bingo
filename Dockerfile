@@ -10,3 +10,6 @@ RUN cd /usr/local/apache2/htdocs/panel && \
 
 RUN cd /usr/local/apache2/htdocs/panel && \
     tar czf panel-4.tgz How-to-Use.txt panel-4.html lib img
+
+RUN cd /usr/local/apache2/htdocs/named && \
+    tar czf named.tgz README.md How-to-Use.txt named.html lib data

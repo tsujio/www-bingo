@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>お名前ビンゴ出た人リスト</title>
+    <script src="lib/suggest.js"></script>
+    <script src="data/candidates.js"></script>
+    <style>
+     #suggest {
+       position: absolute;
+       background-color: #FFFFFF;
+       border: 1px solid #CCCCFF;
+       font-size: 90%;
+       width: 50em;
+     }
+     #suggest div {
+       display: block;
+       width: 50em;
+       overflow: hidden;
+       white-space: nowrap;
+     }
+     #suggest div.select { /* keydown, keyup */
+       color: #FFFFFF;
+       background-color: #3366FF;
+     }
+     #suggest div.over { /* mouse over */
+       background-color: #99CCFF;
+     }
+    </style>
+  </head>
+  <body style="background: #fffacd">
+    <div>
+      <input type="text" id="text" autocomplete="off" size="50">
+      <button type="button" id="add">おめでとう！</button>
+      <div id="suggest" style="display:none;"></div>
+    </div>
+
+    <div >
+      <ul class="winners" style="float: left; width: 45%">
+      </ul>
+      <ul class="winners" style="float: right; width: 45%">
+      </ul>
+    </div>
+
+    <script>
+     window.addEventListener("load", function() {
+       // Setup suggest.js
+       new Suggest.Local(
+         "text",
+         "suggest",
+         list,
+         {dispMax: 10, highlight: true},
+       );
+     });
+
+     var winnersListIndex = 0;
+     var button = document.querySelector("#add");
+     button.addEventListener("click", function() {
+       var textbox = document.querySelector("#text");
+       var name = textbox.value;
+
+       // Validation
+       var index = list.indexOf(name);
+       if (index === -1) {
+         return;
+       }
+       list.splice(index, 1);
+
+       // Add name to winners
+       var winnersList = document.querySelectorAll(".winners");
+       var child = document.createElement("li");
+       child.innerHTML = name + " 様";
+       winnersList[winnersListIndex].appendChild(child);
+
+       winnersListIndex++;
+       winnersListIndex %= 2;
+
+       textbox.value = "";
+     });
+    </script>
+  </body>
+</html>

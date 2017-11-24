@@ -1,0 +1,70 @@
+body {
+    background: #fffacd;
+}
+
+.container {
+    width: 1px;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.row {
+    margin-top: 5px;
+    letter-spacing: -1em;
+}
+
+.panel {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    position: relative;
+    letter-spacing: normal;
+}
+
+.panel:not(:first-child) {
+    margin-left: 10px;
+}
+
+.panel-item {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition-property: width, margin-left, margin-right;
+    transition-duration: 0.3s;
+}
+
+.cover {
+    background: yellow;
+    color: red;
+    font-size: 150px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.cover-number {
+    vertical-align: middle;
+}
+
+.front {
+    transition-timing-function: ease-out;
+    transition-delay: 0.3s;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.back {
+    transition-timing-function: ease-in;
+    transition-delay: 0;
+    width: 0;
+    margin-left: 50%;
+    margin-right: 50%;
+}
+
+.gift-emphasize {
+    position: absolute;
+    transition-property: top, left, width, height;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    transition-delay: 0;
+}

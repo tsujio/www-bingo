@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ビンゴ景品パネル</title>
+  </head>
+  <body>
+    <button type="button" id="download">ダウンロード</button>
+    <button type="button" id="toggle" data-scale="4">4 × 4</button>
+
+    <div>
+      <iframe src="./panel-3.html" height="1px" width="100%" frameborder="0"></iframe>
+    </div>
+
+    <script>
+     // Adjust iframe height
+     var iframe = document.querySelector("iframe");
+     iframe.addEventListener("load", function() {
+       var height = iframe.contentWindow.document.documentElement.scrollHeight;
+       iframe.style.height = height + "px";
+     });
+
+     // Toggle panel scale
+     var toggle = document.querySelector("#toggle");
+     toggle.addEventListener("click", function() {
+       var scale = toggle.getAttribute("data-scale");
+       if (scale === "3") {
+         iframe.src = "./panel-3.html";
+         toggle.setAttribute("data-scale", "4");
+         toggle.innerText = "4 × 4";
+       } else if (scale === "4") {
+         iframe.src = "./panel-4.html";
+         toggle.setAttribute("data-scale", "3");
+         toggle.innerText = "3 × 3";
+       }
+     });
+
+     // Handle download
+     var download = document.querySelector("#download");
+     download.addEventListener("click", function() {
+       var scale = toggle.getAttribute("data-scale");
+       if (scale === "4") {
+         location.href = "./panel-3.tgz";
+       } else if (scale === "3") {
+         location.href = "./panel-4.tgz";
+       }
+     });
+    </script>
+  </body>
+</html>

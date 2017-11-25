@@ -19,8 +19,7 @@ window.onload = function() {
   // カバーにイベントハンドラーを設定
   covers.forEach(function(cover) {
     cover.addEventListener("click", function(e) {
-      var cover = e.target;
-      var gift = e.target.previousElementSibling;
+      var gift = cover.previousElementSibling;
 
       // クラスを切り替えてカバーと景品画像を i 回ターンする
       function turn(i, callback) {

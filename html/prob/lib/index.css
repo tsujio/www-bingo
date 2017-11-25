@@ -1,0 +1,22 @@
+table {
+    border-collapse: collapse;
+    margin: 1rem;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 0.25rem;
+}
+
+#sample td {
+    height: 50px;
+    width: 50px;
+}
+
+.blank {
+    background: gray;
+}
+
+#result th {
+    background: #e3e3e3;
+}

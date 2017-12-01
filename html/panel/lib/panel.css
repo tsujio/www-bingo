@@ -34,11 +34,21 @@ body {
 }
 
 .cover {
-    background: yellow;
-    color: red;
     font-size: 150px;
     text-align: center;
     overflow: hidden;
+}
+
+.row:nth-of-type(odd) .panel:nth-of-type(odd) .cover,
+.row:nth-of-type(even) .panel:nth-of-type(even) .cover {
+    background: #F5DEB3;
+    color: #8B4513;
+}
+
+.row:nth-of-type(odd) .panel:nth-of-type(even) .cover,
+.row:nth-of-type(even) .panel:nth-of-type(odd) .cover {
+    background: #8B4513;
+    color: #F5DEB3;
 }
 
 .cover-number {

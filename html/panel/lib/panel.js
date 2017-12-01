@@ -56,8 +56,8 @@ window.onload = function() {
         document.body.appendChild(giftClone);
 
         // 強調表示
-        var w = gift.width * colNum;
-        var h = gift.height * rowNum;
+        var w = gift.width * Math.min(rowNum, colNum);
+        var h = gift.height * Math.min(rowNum, colNum);
         giftClone.style.top = (window.innerHeight - h) / 2 + "px";
         giftClone.style.left = (window.innerWidth - w) / 2 + "px";
         giftClone.style.width = w + "px";

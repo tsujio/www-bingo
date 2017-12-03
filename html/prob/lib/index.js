@@ -35,12 +35,13 @@ window.addEventListener("load", function() {
     var result = document.querySelector("#result");
     var thead = result.querySelector("thead");
     var tbody = result.querySelector("tbody");
-    thead.innerHTML = "<tr><th>n 回目の数字を引いた時点で</th><th>ビンゴになった人の割合</th></tr>";
+    thead.innerHTML = "<tr><th>数字を引いた回数</th><th>ビンゴになった人の数</th></tr>";
     tbody.innerHTML = "";
 
     var scale = parseInt(document.querySelector("#scale").value);
     var blank = document.querySelector("#blank").checked;
     var num = parseInt(document.querySelector("#num").value);
+    var players = parseInt(document.querySelector("#players").value);
 
     // Setup bingo patterns
     var bingos = [];
@@ -105,7 +106,7 @@ window.addEventListener("load", function() {
       // Add result to table
       var tr = document.createElement("tr");
       tr.innerHTML = "<td>" + (i + 1) + "</td>" +
-        "<td>" + (cnt / SIMULATION_SAMPLES) + "</td>";
+        "<td>" + Math.floor(players * cnt / SIMULATION_SAMPLES) + "</td>";
       tbody.appendChild(tr);
     });
   });
